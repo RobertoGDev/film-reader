@@ -1,0 +1,20 @@
+Idea principal:
+    La práctica consiste en hacer una aplicación que recoja datos de una api y devuelva el resultado como json para poder mostrar en las templates. Dispondrá de algunas secciones, el detalle de la película con rating y add to favorites y un buscador.
+    
+Primeros pasos:
+    ☐ Desarrollar la Idea
+    ☐ Pensar en los servicios que va a ofrecer
+    ☐ Hacer un Mockup
+    ☐ Primer desarrollo básico consistente en:
+        ☐ Mostrar el feed principal y el detalle
+
+Desarrollo:
+    ☐ Buscar api, módulos npm, framework css, etc.
+    ☐ Montar un framework javascript e instalar dependencias.
+    ☐ Crear la conexión con un .env
+    ☐ Vista principal grid con películas
+    ☐ Secciones
+        ☐ Terror
+        ☐ Infantil
+        ☐ Adultos
+    ☐ Detalle de cada 
