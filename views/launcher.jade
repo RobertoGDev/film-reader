@@ -1,5 +1,26 @@
-extends templates/layout
+doctype html
+html
+	head
+		title= title
+		link(rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon")
+		link(rel="stylesheet prefetch", href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css")
+		link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous")
+		link(rel='stylesheet', href='/stylesheets/style.css')
+	body(class= section)
+		.hero.is-info.is-large
+			.hero-body
+				.container.has-text-centered
+					p.title Bienvenido a #{title}
+					p.subtitle La base de datos de cine mas grande de todo CICE
+						.access
+							a.button.is-link(href="/index") Acceder al catálogo
 
-block content
-  h1= title
-  p Welcome to #{title}
+			.hero-foot
+				nav.tabs.is-boxed.is-fullwidth
+					.container
+						ul
+							li.is-active
+								a Películas
+
+							li 
+								a Series
