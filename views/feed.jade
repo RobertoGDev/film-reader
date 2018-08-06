@@ -1,0 +1,37 @@
+extends templates/layout
+
+block content
+	.container
+		#flow
+			span.flow-1
+			span.flow-2
+			span.flow-3
+		.section
+			.box
+				.field.has-addons
+					.control.is-expanded
+						input.input.has-text-centered(type="search", placeholder="Busca en nuestra filmoteca!")
+					.control
+						a.button.is-info Buscar
+			.row.columns.is-multiline
+				each movie in movies
+					each mov in movie
+						.column.is-4-tablet.is-3-desktop
+							.card.large
+								.card-image
+									figure.image
+										<!-- imagen de la pelicula -->
+										img(src="https://image.tmdb.org/t/p/original#{mov.poster_path}", alt="poster de la película #{mov.title}")
+								.card-content
+									.media
+										.media-content
+											p.title.is-4
+												a(href="http://twitter.com/#" title="link a la película") #{mov.title}
+									.content
+										<!-- imagen de la pelicula -->
+										footer.card-footer
+											a.card-footer-item(href="#")
+												span.icon.is-medium
+													i.fa.fa-heart.has-text-danger.fa-lg
+											a.card-footer-item(href="#")
+												span.title.is-5 rate: #{mov.vote_average}

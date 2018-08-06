@@ -1,8 +1,10 @@
+require('dotenv').config;
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
-var fs = require('fs');
+var bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
 
