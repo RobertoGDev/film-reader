@@ -26,12 +26,12 @@ block content
 									.media
 										.media-content
 											p.title.is-4
-												a(href="/movie/#{mov.id}" title="link a la película") #{mov.title}
+												a(href="/detail/#{mov.id}" title="link a la película") #{mov.title}
 									.content
 										<!-- imagen de la pelicula -->
 										footer.card-footer
-											a.card-footer-item(href="/movie/#{mov.id}")
+											a.card-footer-item(href="/detail/#{mov.id}")
 												span.icon.is-medium
 													i.fa.fa-heart.has-text-danger.fa-lg
-											a.card-footer-item(href="/movie/#{mov.id}")
+											a.card-footer-item(href="/detail/#{mov.id}")
 												span.title.is-5 rate: #{mov.vote_average}

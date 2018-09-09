@@ -1,37 +1,47 @@
 extends templates/layout
-
 block content
 	.container
-		#flow
-			span.flow-1
-			span.flow-2
-			span.flow-3
-		.section
-			.box
-				.field.has-addons
-					.control.is-expanded
-						input.input.has-text-centered(type="search", placeholder="Busca en nuestra filmoteca!")
-					.control
-						a.button.is-info Buscar
-			.row.columns.is-multiline
-				each movie in movies
-					each mov in movie
-						.column.is-4-tablet.is-3-desktop
-							.card.large
-								.card-image
-									figure.image
-										<!-- imagen de la pelicula -->
-										img(src="https://image.tmdb.org/t/p/original#{mov.poster_path}", alt="poster de la película #{mov.title}")
-								.card-content
-									.media
-										.media-content
-											p.title.is-4
-												a(href="http://twitter.com/#" title="link a la película") #{mov.title}
-									.content
-										<!-- imagen de la pelicula -->
-										footer.card-footer
-											a.card-footer-item(href="#")
-												span.icon.is-medium
-													i.fa.fa-heart.has-text-danger.fa-lg
-											a.card-footer-item(href="#")
-												span.title.is-5 rate: #{mov.vote_average}
+		.movie-card
+			a(href="#")
+				img(src='https://image.tmdb.org/t/p/original'+film.poster_path alt='película'+film.name class="cover")
+			.hero(style='background-image: url("https://image.tmdb.org/t/p/original'+film.backdrop_path+'");')
+				.details
+					.title1 
+						p #{film.title}
+					
+					fieldset.rating
+						input#star5(name="rating" value="5")
+						label.full(for="star5" title="Awesome - 5 stars")
+						input#star4half(name="rating" value="4 and a half")
+						label.half(for="star4half" title="Pretty good - 4.5 stars")
+						input#star4(name="rating" value="4" checked)
+						label.full(for="star4" title="Pretty good - 4 stars")
+						input#star3half(name="rating" value="3 and a half")
+						label.half(for="star3half" title="Meh - 3.5 stars")
+						input#star3(name="rating" value="3")
+						label.full(for="star3" title="Meh - 3 stars")
+						input#star2half(name="rating" value="2 and a half")
+						label.half(for="star2half" title="Kinda bad - 2.5 stars")
+						input#star2(name="rating" value="2")
+						label.full(for="star2" title="Kinda bad - 2 stars")
+						input#star1half(name="rating" value="1 and a half")
+						label.half(for="star1half" title="Meh - 1.5 stars")
+						input#star1(name="rating" value="1")
+						label.full(for="star1" title="Sucks big time - 1 star")
+						input#starhalf(name="rating" value="half")
+						label.half(for="starhalf" title="Sucks big time - 0.5 stars")
+
+			
+					span.likes #{film.popularity} de popularidad 
+					
+	
+	
+		.description.columns
+			.column.is-8.is-offset-4
+				p #{film.overview} 
+		
+	script(src="/js/detail.js")
+		
+			
+		
+		

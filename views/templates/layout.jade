@@ -5,14 +5,17 @@ html
 		link(rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon")
 		link(rel="stylesheet prefetch", href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css")
 		link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous")
+		link(rel='stylesheet', href='/stylesheets/detail.css')
 		link(rel='stylesheet', href='/stylesheets/style.css')
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+
 	body(class= section)
 
 		header
 			nav.navbar
 				.container
 					.navbar-brand
-						a.navbar-item(href="/feed")
+						a.navbar-item(href="/index")
 							h1 FILM-READER | #{title}
 						span.navbar-burguer.burguer(data-target="navbarMenu")
 							span

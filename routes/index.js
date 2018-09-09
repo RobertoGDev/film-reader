@@ -11,7 +11,7 @@ const db = JSON.parse(fs.readFileSync(dbPath), "utf8");
 
 function DBsave(films) {
   const lastFilms = db.films;
-  const allFilms = [...lastFilms, ...films]; // db.articles.concat(data)
+  const allFilms = [...lastFilms, ...films];
   const newData = { films: allFilms };
   const String = JSON.stringify(newData);
 
@@ -36,7 +36,6 @@ router.get('/index', async function(req, res) {
   })
   .catch(e => res.status(500).send('error'));
 
-  console.log(films);
   const totalFilms = films.data.results.map(film => ({
     ...film,
     id: film.id,
@@ -45,13 +44,10 @@ router.get('/index', async function(req, res) {
   }));
 
   const filmsFiltered = totalFilms.filter(item => {
-    const check = db.films.find(art => art.url === item.url);
+    const check = db.films.find(mov => mov.id === item.id);
     return !Boolean(check);
   });
 
-  // Pinto en pantalla todos los que me vienen
-
-  // Guardo solo los que no tenía guardados antes
   res.render('feed', { 
     section: 'catalogo', 
     title: 'Catálogo', 
@@ -66,26 +62,15 @@ router.get('/index', async function(req, res) {
 
 router.get("/detail/:id", async function(req, res) {
   const param = req.params.id;
-  const film = db.films.find(item => item.id === param);
+ 
+  const film = db.films.find(item => item.id == param);
+  res.render("detail", { 
+    title: "Film Catalogue | Detail", 
+    section: 'detail', 
+    film  });
 
-  res.render("detail", { title: "Film Catalog | Detail", film });
 });
 
-
-router.get("/favs", (req, res) => {
-  const favFilms = db.films.filter(item => item.fav === true);
-  const filter = req.query.category;
-  const favFilmsFiltered = favFilms.filter(
-    item => item.category === filter
-  );
-  const filmsToShow = filter ? favFilmsFiltered : favFilms;
-
-  res.render("feed", {
-    title: "NewsReader | Favoritos",
-    noticias: filmsToShow,
-    isFavsPage: true
-  });
-});
 
 function formatDate(format, date) {
   date = new Date(date);
